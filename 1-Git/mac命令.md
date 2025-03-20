@@ -1,6 +1,13 @@
-Mac（基于 Unix）的终端里有很多常用的 Shell 命令，以下是一些基本但实用的命令：  
+Mac（基于 Unix）的终端里有很多常用的 Shell 命令，以下是一些基本但实用的命令：
 
-### **文件和目录操作**
+### 清空
+Windows CMD 或者 Navicat 命令窗口的清屏命令：Clear 或者 CLS
+
+MacBook 命令终端的清屏命令/快捷键：Ctrl+Cmd+L（清除屏幕） ，Cmd+K（清除到开头），Clear ，Ctrl+L
+
+Linux 命令终端的清屏命令/快捷键：Clear，Ctrl+L
+
+### 文件和目录操作
 | 命令 | 作用 |
 |------|------|
 | `ls` | 查看当前目录的文件和文件夹 |
