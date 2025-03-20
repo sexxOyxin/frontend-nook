@@ -69,7 +69,19 @@ echo hhhhh > testdemo/newfile3.md
 # 查看状态
 git status
 
-# 提交
+# 暂存 + 提交
+git add .
+git commit -m 'git 练习'
+
+# 创建/切换分支
+git branch gitlearn
+git checkout gitlearn
+
+# 在 main 分支创建 mainfile 文件 并且commit 切换到 gitlearn 分支看不到mainfile
+
+#
+
+#
 
 
 ```
