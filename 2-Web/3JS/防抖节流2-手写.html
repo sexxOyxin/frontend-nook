@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box1" style="width: 200px; height: 100px; background: grey;">t</div>
+    <div class="box2" style="width: 200px; height: 100px; background: grey; margin-top: 20px;">d</div>
+
+    <script>
+        // 一段时间内 如果没再触发 就执行
+        const debounce = (fn, t) => {
+            let timer = null;
+            // 需要返回方法 因为 addEventListener 传参得是方法
+            return function () {
+                // 如果存在的话就清除定时器 并且重新开一个
+                // 造成的效果就是 直到不调用这个方法了 总归有最后一个存在的 timer 会等待 t 后被执行
+                if (timer) {
+                    clearTimeout(timer);
+                }
+                timer = setTimeout(() => {
+                    fn();
+                }, t);
+            }
+        };
+
+        // 一段时间内 只执行一次
+        const throttle = (fn ,t) => {
+            let timer = null;
+            return function () {
+                // t 时间后 timer才会被清空！！ 所以这样无敌 保证 t 时间内只会执行一次
+                if (!timer) {
+                    timer = setTimeout(() => {
+                        fn();
+                        timer = null;
+                    }, t);
+                }
+            }
+        };
+
+        const jieliu = document.querySelector('.box1');
+        const fangdou = document.querySelector('.box2');
+
+        let num1 = 0;
+        let num2 = 0;
+        jieliu.addEventListener('mousemove', throttle(() => {
+            jieliu.innerHTML = num1++;
+        },2000));
+        fangdou.addEventListener('mousemove', debounce(() => {
+            fangdou.innerHTML = num2++;
+        },1000));
+    </script>
+</body>
+
+</html>

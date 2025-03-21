@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lodash</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+</head>
+
+<body>
+    <div class="box1" style="width: 200px; height: 100px; background: grey;">t</div>
+    <div class="box2" style="width: 200px; height: 100px; background: grey; margin-top: 20px;">d</div>
+
+    <script>
+        // 无论触发多少次，一段时间内只执行一次
+        const jieliu = document.querySelector('.box1');
+        let num1 = 0;
+        jieliu.addEventListener('mousemove', _.throttle(() => {
+            jieliu.innerHTML = num1++;
+        }, 2000));
+
+        // 只执行最后一次，(等能坚持几秒不抖了我再动哈哈哈
+        const fangdou = document.querySelector('.box2');
+        let num2 = 0;
+        fangdou.addEventListener('mousemove', _.debounce(function () {
+            this.innerHTML = num2++;
+        }, 1000));
+    </script>
+</body>
+
+</html>

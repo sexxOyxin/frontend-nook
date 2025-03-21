@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box1" style="width: 200px; height: 100px; background: grey;">t</div>
+    <div class="box2" style="width: 200px; height: 100px; background: grey; margin-top: 20px;">d</div>
+
+    <script>
+        /*
+        优化的方向：
+            1.刚才的手写遗漏了传递参数 - arg 和 this 【牵扯到箭头函数没有this需要apply，所以再写一版普通函数的
+            2.节流如果不想执行第一次和最后一次 【比如调整窗口大小 第一次不想执行 最后一次想执行 用来判断是不是到底部了之类的
+            3.防抖如果想立即触发 【比如刚输入一个字就进行搜索提示 或者输入框的提示 而不是等几秒后提示
+            3.防抖如果想随时取消 【比如请求网页呢 不想请求了 可能是等10s再请求 但是我现在就停 就不用浪费了
+        */
+
+        const debounce = (fn, t, immediate = true) => {
+            let timer = null;
+            return function (...args) {
+                if (timer) {
+                    clearTimeout(timer);
+                }
+
+                // 如果立即执行 并且是第一次的话就执行
+                if (immediate && !timer) {
+                    fn().apply(this, args);
+                }
+
+                timer = setTimeout(() => {
+                    fn().apply(this, args);
+                }, t);
+            }
+        };
+
+        const throttle = (fn ,t) => {
+            let timer = null;
+            return function (...args) {
+                if (!timer) {
+                    timer = setTimeout(() => {
+                        fn().apply(this, args);
+                        timer = null;
+                    }, t);
+                }
+            }
+        };
+
+        const jieliu = document.querySelector('.box1');
+        const fangdou = document.querySelector('.box2');
+
+        let num1 = 0;
+        let num2 = 0;
+        jieliu.addEventListener('mousemove', throttle(() => {
+            jieliu.innerHTML = num1++;
+        },2000));
+        fangdou.addEventListener('mousemove', debounce(() => {
+            fangdou.innerHTML = num2++;
+        },1000));
+    </script>
+</body>
+
+</html>
