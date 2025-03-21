@@ -1,3 +1,16 @@
+# 这里记录容易忘记的快捷键
+删除尾部红空格 - shift + option + t
+格式化 - shift + option + f
+移动行 - option + 上下
+复制整行 - shift + option + 上下
+合并行 - control + j
+回到上一个光标处 - control + -
+回到下一个 - control + shift + -
+切换文件 - control + tab
+左右切换 - option + cmd + 左右键
+添加多个光标 - option + 鼠标点点点
+添加多个光标的扩展 - option + shift + 鼠标点点点
+
 # node_modules文件不自动定位
 打开VSCode的setting配置，搜索Auto Reveal Exclude，可以看到自动打开文件/目录的排除配置，把**/node_modules那一项去掉就可以了。
 
@@ -9,7 +22,6 @@
 key：```**/*.md```
 value【我想将图片放在当前文件夹的images中】：```images/${fileName}```
 ![mdcopy](images/image.png)
-
 
 # 自定义保存
 找到VSCode的设置页，搜索 Auto Save，我比较喜欢失焦保存。
@@ -23,6 +35,9 @@ value【我想将图片放在当前文件夹的images中】：```images/${fileNa
 
 # ts显示类型
 找到VSCode的设置页搜索 ```TypeScript › Inlay Hints › Enum Member Values```，选择自己要显示的类型。
+
+# 跳转到上一个光标位置 - ts的时候用到
+```control + -```
 
 # 生成目录树
 安装插件 project-tree，快捷键 Ctrl+Shift+P 然后输入 Project Tree，查看 README.md 生成好的树。
