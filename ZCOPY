@@ -1,0 +1,41 @@
+const debounce = (fn, t, immediate = false) => {
+    let timer = null;
+    let invoked = false; // 标记是否已经调用过（用于 immediate）
+
+    const debouncedFn = (...args) => {
+        if (immediate && !invoked) {
+            fn(...args);
+            invoked = true; // 标记已经执行过
+        }
+
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            if (!immediate) fn(...args);
+            invoked = false; // 计时器结束后，重置 invoked，允许下次立即执行
+        }, t);
+    };
+
+    // 取消防抖
+    debouncedFn.cancel = () => {
+        clearTimeout(timer);
+        invoked = false;
+    };
+
+    return debouncedFn;
+};
+
+// 使用示例
+const log = debounce(() => console.log('触发了防抖函数！'), 1000, true);
+
+log(); // 立即执行
+log(); // 这次不会执行
+log(); // 这次也不会执行
+
+setTimeout(log, 1500); // 1.5s 后执行
+
+setTimeout(() => {
+    log.cancel(); // 取消防抖
+    console.log('防抖被取消');
+}, 500);
+
+
