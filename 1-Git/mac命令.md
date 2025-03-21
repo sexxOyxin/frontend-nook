@@ -1,4 +1,19 @@
-Mac（基于 Unix）的终端里有很多常用的 Shell 命令，以下是一些基本但实用的命令：
+# 电脑快捷键
+网页：https://support.apple.com/zh-cn/102650
+
+cmd + q 退出
+cmd + w 关闭
+cmd + m 小化
+cmd + tab 切换全局app
+cmd + ` 切换当前桌面应用
+cmd + , 几乎是打开所有的设置页
+
+# 命令行常用总结
+清空 - clear
+当前目录文件和文件夹 - ls
+当前所在目录 - pwd - print working directory
+创建文件夹 - mkdir
+查看全部帮助文档 - man git - q 退出
 
 ### 清空
 Windows CMD 或者 Navicat 命令窗口的清屏命令：Clear 或者 CLS
