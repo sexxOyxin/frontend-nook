@@ -10,6 +10,15 @@ git clone https://github.com/sexxOyxin/frontend-nook.git
 git remote -v
 ```
 
+## 查看npm源
+```bash
+npm config get registry
+npm config set registry https://registry.npmjs.org/
+
+# 公司的
+npm config set registry http://npmjs.deepfos.com/
+```
+
 ## 设置用户信息
 ```bash
 git config user.name xxx
@@ -99,13 +108,4 @@ git merge --abort
 git reset --soft HEAD~1
 # 2.3 已经push到远程了
 git revert -m 1 <合并提交的 commit id>
-
-
-# 下一个
-
-
-
-#
-
-
 ```
