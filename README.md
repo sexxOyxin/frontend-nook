@@ -1,5 +1,4 @@
-文档驱动开发（DDD）模式
-
+# 文档驱动开发（DDD）模式
 
 ```
 frontend-nook
@@ -71,3 +70,20 @@ frontend-nook
 └─ ZCOPY
 
 ```
+# website
+## jsbin - 在线运行js：
+https://jsbin.com/
+
+# github
+## learn - ggy
+sum？：
+https://github.com/Ggy-king/Full-stack-engineer-content-review
+
+html&css：
+https://github.com/Ggy-king/html-css-js-pra
+
+inter：
+https://github.com/Ggy-king/Interview-and-employment-question-exercises
+
+ts：
+https://github.com/Ggy-king/TypeScript-learning-and-improvement
