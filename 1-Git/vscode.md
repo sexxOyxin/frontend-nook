@@ -3,13 +3,17 @@
 格式化 - shift + option + f
 移动行 - option + 上下
 复制整行 - shift + option + 上下
+复制整行 直接 cmd + c 到下一行 cmd + v 就行了
 合并行 - control + j
 回到上一个光标处 - control + -
 回到下一个 - control + shift + -
 切换文件 - control + tab
 左右切换 - option + cmd + 左右键
+添加多个光标 键盘 - cmd + option
 添加多个光标 - option + 鼠标点点点
 添加多个光标的扩展 - option + shift + 鼠标点点点
+快速移动光标 - option + 左右 是单词之间快速跳
+快速移动光标 - cmd + 左右 是头和尾的跳转
 
 # node_modules文件不自动定位
 打开VSCode的setting配置，搜索Auto Reveal Exclude，可以看到自动打开文件/目录的排除配置，把**/node_modules那一项去掉就可以了。
