@@ -70,9 +70,14 @@ frontend-nook
 └─ ZCOPY
 
 ```
+
 # website
 ## jsbin - 在线运行js：
 https://jsbin.com/
+
+## notion - 笔记
+同步的微信读书：https://www.notion.so/1c3e7fb5acdc81d4a0e3c2ff2db76ab9?v=1c3e7fb5acdc81749f4c000c1479cb8b
+fork的github源码：https://github.com/malinkang/weread2notion
 
 ## api接口调用
 https://apifox.com/
