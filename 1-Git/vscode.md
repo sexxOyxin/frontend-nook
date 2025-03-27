@@ -47,7 +47,8 @@ value【我想将图片放在当前文件夹的images中】：```images/${fileNa
 安装插件 project-tree，快捷键 Ctrl+Shift+P 然后输入 Project Tree，查看 README.md 生成好的树。
 ![projecttree](images/image-2.png)
 
-# 好用插件 - TODO TREE
+# 好用插件
+## TODO TREE
 还有一个类似的叫 TODO Highlight，但是我比较喜欢可以展示在目录里面的哈哈
 ![todotree](images/image-3.png)
 
@@ -90,3 +91,7 @@ value【我想将图片放在当前文件夹的images中】：```images/${fileNa
 参考文档：
 https://blog.csdn.net/Ztt300/article/details/124474324
 
+## korofileheader
+生成代码注释声明的
+参考文档：
+https://github.com/OBKoro1/koro1FileHeader/wiki/%E5%AE%89%E8%A3%85%E5%92%8C%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B
