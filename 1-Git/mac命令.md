@@ -10,12 +10,17 @@ cmd + , 几乎是打开所有的设置页
 
 control + 左右 桌面切换
 
+## 打印时间
+教程：https://blog.csdn.net/Archiena/article/details/130336634
+control + shift + t
+2025-03-28 14:26:53 Friday
+
 # 命令行常用总结
 清空 - clear
 当前目录文件和文件夹 - ls
 当前所在目录 - pwd - print working directory
 创建文件夹 - mkdir
-查看全部帮助文档 - man git - q 退出
+查看全部帮助文档 - man git - 输入 q 退出
 
 ### 清空
 Windows CMD 或者 Navicat 命令窗口的清屏命令：Clear 或者 CLS
