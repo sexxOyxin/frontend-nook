@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clone</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+    <script src="https://cdn.staticfile.net/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+    <script>
+        // -------- 浅拷贝 --------
+        // 1、简单的浅拷贝
+        const shallowcopy = (obj) => {
+            const newObj = {};
+            for(let i in obj) {
+                newObj.i = boj[i];
+            }
+            return newObj;
+        };
+
+        // 2、Object.assign
+        const assObj = {
+            a: 'a',
+            b: { name: 'b' },
+        };
+        const assNewObj = Object.assign({}, assObj);
+        assNewObj.b.name = '这是assign后修改的';
+
+        // 3、Array.prototype.slice()
+        const sArr = [1,2,3,{a:'a'}];
+        const sliceArr = sArr.slice(0);
+        sliceArr[3].a = '这是slice后修改的';
+
+        // 3、Array.prototype.concat()
+        const cArr = [1,2,3,{a:'a'}];
+        const concatArr = cArr.concat(2);
+        concatArr[3].a = '这是concat后修改的';
+
+        // 4、...拓展运算符
+        const kArr = [1,2,3,{a:'a'}];
+        const kka = [...kArr];
+        kka[3].a = '这是扩展运算符后修改的';
+
+        // -------- 深拷贝 --------
+        // 1、_.cloneDeep()
+        const deepArr = [1,2,3,{a:'a'}];
+        const _arr = _.cloneDeep(deepArr);
+        _arr[3].a = '这是deepclone后修改的'; // 原数组中的a没有被修改哦
+
+        // 2、jQuery.extend() 用于将一个或多个对象合并到目标对象中
+        const eArr = {
+            a: 'a',
+            b: { name: 'b' },
+        };
+        const extendArr = $.extend(true, {}, eArr);
+        eArr.b === extendArr.b;
+
+        // 3、JSON.stringify() - 会忽略undefined、symbol、函数
+        const jsonObj = {
+            a: 'a',
+            b: { name: 'b' },
+        };
+        const jObj = JSON.parse(JSON.stringify(jsonObj));
+        jObj.b === jsonObj.b
+
+        // 4、手写递归循环
+        const deepClone = (obj) => {
+            // 基础类型直接返回
+            if (typeof obj !== 'object' || obj == null) {
+                return obj;
+            }
+
+            // Object.prototype.toString.call(obj)   [object Array]
+            // 数组的话 遍历每一项 遇到引用类型就递归调用
+            if (Array.isArray(obj)) {
+                const copyArr = [];
+                for (let i = 0; i < obj.length; i++) {
+                    copyArr[i] = deepClone(obj[i]);
+                }
+                return copyArr;
+            }
+
+            // 是对象
+            const copyObj = {};
+            for (let key in obj) {
+                if (obj.hasOwnProperty(key)) {
+                    copyObj[key] = deepClone(obj[key]);
+                }
+            }
+            return copyObj;
+        };
+        const hobj = {
+            a: [1,2,3],
+            b: {name: 'hobj'},
+        };
+        const handCopy = deepClone(hobj);
+        handCopy.a === hobj.a; // false
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+const buz = {
+  fog: "stack",
+};
+
+for (const name in buz) {
+  if (buz.hasOwnProperty(name)) {
+    console.log(`this is fog (${name}) for sure. Value: ${buz[name]}`);
+  } else {
+    console.log(name); // toString 或其他的方法等
+  }
+}
+    </script>
+</body>
+
+</html>

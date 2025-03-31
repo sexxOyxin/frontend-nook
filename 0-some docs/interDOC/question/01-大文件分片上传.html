@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File Splitter</title>
+</head>
+<body>
+
+<input type="file" id="fileInput">
+<button onclick="startUpload()">Start Upload</button>
+
+<script>
+  const CHUNK_SIZE = 5 * 1024 * 1024;  // 5MB per chunk
+
+  function startUpload() {
+    const fileInput = document.getElementById('fileInput');
+    const file = fileInput.files[0];
+    console.log('fileInput: ', fileInput);
+    if (!file) {
+      alert("Please select a file first.");
+      return;
+    }
+
+    const totalChunks = Math.ceil(file.size / CHUNK_SIZE);
+    let currentChunk = 0;
+
+    function uploadNextChunk() {
+      const start = currentChunk * CHUNK_SIZE;
+      const end = Math.min((currentChunk + 1) * CHUNK_SIZE, file.size);
+      const chunk = file.slice(start, end);
+
+      // 使用 FormData 上传每个分片
+      const formData = new FormData();
+      formData.append("file", chunk);
+      formData.append("chunkIndex", currentChunk);
+      formData.append("totalChunks", totalChunks);
+
+      fetch('/upload', {
+        method: 'POST',
+        body: formData,
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(`Chunk ${currentChunk + 1} uploaded.`);
+        currentChunk++;
+
+        if (currentChunk < totalChunks) {
+          uploadNextChunk();  // 上传下一个分片
+        } else {
+          console.log("File upload complete.");
+        }
+      })
+      .catch(error => console.error('Error uploading chunk:', error));
+    }
+
+    uploadNextChunk();  // 启动上传
+  }
+</script>
+
+</body>
+</html>

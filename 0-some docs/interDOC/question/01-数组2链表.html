@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 定义节点类
+        class Node {
+            constructor(value) {
+                this.value = value; // 存储节点的值
+                this.next = null;   // 指向下一个节点的指针
+            }
+        }
+
+        // 定义链表类
+        class LinkedList {
+            constructor() {
+                this.head = null; // 链表头
+                this.size = 0;    // 链表大小
+            }
+
+            // 在链表末尾添加元素
+            append(value) {
+                const newNode = new Node(value);
+                if (!this.head) {
+                    this.head = newNode;
+                } else {
+                    let current = this.head;
+                    while (current.next) {
+                        current = current.next;
+                    }
+                    current.next = newNode;
+                }
+                this.size++;
+            }
+
+            // 在指定位置插入元素
+            insert(value, index) {
+                if (index < 0 || index > this.size) return false;
+                const newNode = new Node(value);
+
+                if (index === 0) {
+                    newNode.next = this.head;
+                    this.head = newNode;
+                } else {
+                    let current = this.head;
+                    let previous;
+                    let i = 0;
+                    while (i++ < index) {
+                        previous = current;
+                        current = current.next;
+                    }
+                    previous.next = newNode;
+                    newNode.next = current;
+                }
+                this.size++;
+                return true;
+            }
+
+            // 删除指定位置的元素
+            removeAt(index) {
+                if (index < 0 || index >= this.size) return null;
+
+                let current = this.head;
+
+                if (index === 0) {
+                    this.head = current.next;
+                } else {
+                    let previous;
+                    let i = 0;
+                    while (i++ < index) {
+                        previous = current;
+                        current = current.next;
+                    }
+                    previous.next = current.next;
+                }
+                this.size--;
+                return current.value;
+            }
+
+            // 获取链表大小
+            getSize() {
+                return this.size;
+            }
+
+            // 打印链表
+            print() {
+                let current = this.head;
+                let result = '';
+                while (current) {
+                    result += current.value + ' -> ';
+                    current = current.next;
+                }
+                console.log(result + 'null');
+            }
+        }
+
+        // 示例用法
+        const list = new LinkedList();
+        list.append(1);
+        list.append(2);
+        list.append(3);
+        list.insert(4, 1); // 在位置1插入4
+        list.print(); // 输出: 1 -> 4 -> 2 -> 3 -> null
+        console.log('Removed:', list.removeAt(2)); // 删除位置2的元素
+        list.print(); // 输出: 1 -> 4 -> 3 -> null
+    </script>
+</body>
+
+</html>
