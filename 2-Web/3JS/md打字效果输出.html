@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>md</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        body {
+            color: #000000;
+        }
+        #output {
+            border: 1px solid #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="output"></div>
+
+    <script>
+        const markdownText = `
+# 标题1
+## 标题2
+### 标题3
+#### 标题4
+##### 标题5
+###### 标题6
+---
+Table
+| 列1  | 列1  |
+| ---- | ---- |
+| info | info |
+
+1. 有序列表2
+2. 有序列表1
+   子项
+
+- 无序
+  无序
+
+- [ ] 任务
+- [x] done任务
+
+[Link]: http://baidu.com
+
+~~删除线~~
+
+_斜体_
+
+**粗体**
+
+<u>是下划线</u>
+
+\`\`\`js
+console.log("Hello, World!");
+\`\`\`
+        `;
+
+        let index = 0;
+        let currentText = "";
+
+        function typeEffect() {
+            if (index < markdownText.length) {
+                currentText += markdownText[index];
+                document.getElementById("output").innerHTML = marked.parse(currentText);
+                index++;
+                setTimeout(typeEffect, 50); // 50ms 逐字输出
+            }
+        }
+
+        typeEffect();
+    </script>
+
+</body>
+</html>
