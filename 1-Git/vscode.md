@@ -53,7 +53,7 @@ value【我想将图片放在当前文件夹的images中】：```images/${fileNa
 ![todotree](images/image-3.png)
 
 笨人的设置效果：
-![xiaoguo](images/image-5.png)
+![xiaougo](images/image-6.png)
 配置代码：
 ```json
   "todo-tree.highlights.defaultHighlight": {
@@ -64,29 +64,36 @@ value【我想将图片放在当前文件夹的images中】：```images/${fileNa
     "gutterIcon": true
   },
   "todo-tree.general.tags": [
-    "todo",
-    "mark",
-    "bug",
+    "ttttdo",
+    "mmmmark",
+    "bbbbug",
+    "mmmmood",
   ],
   "todo-tree.highlights.customHighlight": {
-    "todo": {
+    "ttttdo": {
       "type": "text-and-comment",
       "foreground": "#FF9800",
       "iconColour": "#FF9800",
     },
-    "mark": {
+    "mmmmark": {
       "icon": "unverified",
       "type": "text-and-comment",
       "foreground": "#1ed6c0",
       "iconColour": "#1ed6c0",
     },
-    "bug": {
+    "mmmmood": {
+      "icon": "smiley",
+      "type": "text-and-comment",
+      "foreground": "#41a822",
+      "iconColour": "#41a822",
+    },
+    "bbbbug": {
       "icon": "bug",
       "foreground": "#ff0000",
       "iconColour": "#ff0000",
       "type": "text-and-comment",
     }
-  }
+  },
 ```
 参考文档：
 https://blog.csdn.net/Ztt300/article/details/124474324
