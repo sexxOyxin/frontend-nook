@@ -53,7 +53,7 @@ value【我想将图片放在当前文件夹的images中】：```images/${fileNa
 ![todotree](images/image-3.png)
 
 笨人的设置效果：
-![xiaougo](images/image-6.png)
+![xiaoguo](images/image-6.png)
 配置代码：
 ```json
   "todo-tree.highlights.defaultHighlight": {
