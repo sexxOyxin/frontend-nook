@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const testasync = async () => {
+            // 0 7 1 2 6 3 4 5 aa:resolve
+            console.log(0);
+            const func = () => {
+                console.log(1);
+                return new Promise((resolve) => {
+                    console.log(2);
+                    setTimeout(() => {
+                        resolve('resolve');
+                        console.log(3);
+                        console.log(4);
+                        console.log(5);
+                    }, 1000);
+                    console.log(6);
+                });
+            };
+            console.log(7);
+            // 0 7 1 2 6 3 4 5 aa:resolve 8
+            const aa = await func();
+            console.log('aa: ', aa);
+
+            // 0 7 1 2 6 8 3 4 5 aa:resolve
+            // func().then((res) => {
+            //     console.log('aa: ', res);
+            // });
+            console.log(8);
+        };
+
+        const func = async () => {
+            console.log(9);
+            await testasync();
+            console.log(10);
+        };
+        func();
+    </script>
+</body>
+
+</html>
