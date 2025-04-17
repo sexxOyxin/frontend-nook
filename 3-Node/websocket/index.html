@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="msg">
+    <button onclick="sendmsg()">热发送</button>
+    <script>
+        const sendmsg = () => {
+            const msg = document.getElementById('msg').value;
+            ws.send('点击按钮发送的'+msg)
+        };
+        const ws = new WebSocket('ws://localhost:1017');
+        ws.addEventListener('open', () => {
+            console.log('html连接成功');
+            ws.send('前端html发送的消息');
+            ws.send(JSON.stringify({userID: 'yaxin'}));
+        });
+        ws.addEventListener('message', (e) => {
+            console.log('e: ', e.data);
+        });
+        ws.addEventListener('close', () => {
+            console.log('连接结束');
+        });
+    </script>
+
+</body>
+</html>
