@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vite + WebSocket Demo</title>
+</head>
+
+<body>
+    <button id="sendMsg">发送 WebSocket 消息</button>
+    <button id="httpFetch">发送 HTTP 请求</button>
+    <div id="log"></div>
+    <script>
+        const log = document.getElementById('log');
+        const ws = new WebSocket('ws://localhost:5220');
+
+        ws.addEventListener('open', () => {
+            log.innerHTML += '<p>WebSocket 已连接</p>';
+        });
+
+        ws.addEventListener('message', (event) => {
+            log.innerHTML += `<p>WebSocket 收到：${event.data}</p>`;
+        });
+
+        document.getElementById('sendMsg').onclick = () => {
+            ws.send('Hello from 前端');
+        };
+
+        document.getElementById('httpFetch').onclick = async () => {
+            const res = await fetch('/api/push');
+            const text = await res.text();
+            log.innerHTML += `<p>HTTP 接口返回：${text}</p>`;
+        };
+
+    </script>
+</body>
+
+</html>
