@@ -1,41 +1,101 @@
-const debounce = (fn, t, immediate = false) => {
-    let timer = null;
-    let invoked = false; // 标记是否已经调用过（用于 immediate）
+// 文件结构：
+// - project/
+//   - server.js        // Node.js HTTP + WebSocket 服务
+//   - vite.config.js   // Vite 配置
+//   - index.html       // 前端页面
+//   - main.js          // 前端脚本
 
-    const debouncedFn = (...args) => {
-        if (immediate && !invoked) {
-            fn(...args);
-            invoked = true; // 标记已经执行过
-        }
+// ========== server.js ==========
+const http = require('http');
+const WebSocket = require('ws');
+const express = require('express');
+const app = express();
+const server = http.createServer(app);
+const wss = new WebSocket.Server({ server });
 
-        clearTimeout(timer);
-        timer = setTimeout(() => {
-            if (!immediate) fn(...args);
-            invoked = false; // 计时器结束后，重置 invoked，允许下次立即执行
-        }, t);
-    };
+const PORT = 5220;
+let clients = new Set();
 
-    // 取消防抖
-    debouncedFn.cancel = () => {
-        clearTimeout(timer);
-        invoked = false;
-    };
+wss.on('connection', (ws) => {
+  console.log('新客户端连接');
+  clients.add(ws);
 
-    return debouncedFn;
+  ws.on('message', (msg) => {
+    console.log('客户端发来:', msg.toString());
+    ws.send('收到你的消息: ' + msg);
+  });
+
+  ws.on('close', () => {
+    clients.delete(ws);
+    console.log('客户端断开连接');
+  });
+});
+
+app.get('/push', (req, res) => {
+  for (const ws of clients) {
+    ws.send('来自 HTTP 接口的推送');
+  }
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('消息已通过 WebSocket 推送');
+});
+
+server.listen(PORT, () => {
+  console.log('Node.js 服务运行在 http://localhost:' + PORT);
+});
+
+
+// ========== vite.config.js ==========
+import { defineConfig } from 'vite';
+
+export default defineConfig({
+  server: {
+    port: 3000,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5220',
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/api/, '')
+      }
+    }
+  }
+});
+
+
+// ========== index.html ==========
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Vite + WebSocket Demo</title>
+</head>
+<body>
+  <h1>Hello WebSocket + HTTP</h1>
+  <button id="sendMsg">发送 WebSocket 消息</button>
+  <button id="httpFetch">发送 HTTP 请求</button>
+  <div id="log"></div>
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
+
+
+// ========== main.js ==========
+const log = document.getElementById('log');
+const ws = new WebSocket('ws://localhost:5220');
+
+ws.addEventListener('open', () => {
+  log.innerHTML += '<p>WebSocket 已连接</p>';
+});
+
+ws.addEventListener('message', (event) => {
+  log.innerHTML += `<p>WebSocket 收到：${event.data}</p>`;
+});
+
+document.getElementById('sendMsg').onclick = () => {
+  ws.send('Hello from 前端');
 };
 
-// 使用示例
-const log = debounce(() => console.log('触发了防抖函数！'), 1000, true);
-
-log(); // 立即执行
-log(); // 这次不会执行
-log(); // 这次也不会执行
-
-setTimeout(log, 1500); // 1.5s 后执行
-
-setTimeout(() => {
-    log.cancel(); // 取消防抖
-    console.log('防抖被取消');
-}, 500);
-
-
+document.getElementById('httpFetch').onclick = async () => {
+  const res = await fetch('/api/push');
+  const text = await res.text();
+  log.innerHTML += `<p>HTTP 接口返回：${text}</p>`;
+};

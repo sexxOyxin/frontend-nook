@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="msg">
+    <button onclick="sendmsg()">热发送</button>
+    <br>
+    <button onclick="fetchFunc()">fetch</button>
+    <button onclick="xhrFunc()">xhr-XMLHttpRequest</button>
+    <script>
+        const fetchFunc = () => {
+            // 解决跨域问题
+            fetch('/api/push')
+                .then((res) => {
+                    console.log('res: ', res);
+                }).catch((err) => {
+                    console.log('http-fetch失败: ', err);
+                });
+        };
+        const xhrFunc = () => {
+            const xhr = new XMLHttpRequest(); xhr.open('GET', '/api/push', true);
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    console.log('服务器返回:', xhr.responseText);
+                }
+            };
+            xhr.send();
+        };
+
+
+        const sendmsg = () => {
+            const msg = document.getElementById('msg').value;
+            ws.send('点击按钮发送的' + msg)
+        };
+        const ws = new WebSocket('ws://localhost:1017');
+        ws.addEventListener('open', () => {
+            console.log('html连接成功');
+            ws.send('前端html发送的消息');
+            // ws.send(JSON.stringify({userID: 'yaxin'}));
+        });
+        ws.addEventListener('message', (e) => {
+            console.log('e: ', e.data);
+        });
+        ws.addEventListener('close', () => {
+            console.log('连接结束');
+        });
+    </script>
+
+</body>
+
+</html>
