@@ -1,0 +1,17 @@
+{
+  "name": "exports",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "os": "^0.1.2",
+     "commander": "^4.0.1",
+    "ora": "^4.0.3"
+  }
+}
