@@ -6,7 +6,7 @@ program
 .parse(process.argv);
 
 (async () => {
-  const ora = (await import('ora')).default;
+  const ora = (await import('ora')).default; // 可以不用这种写法了，顶层await解决问题
   const spinner = ora('正在加载中，请稍后 ...').start();
 
   setTimeout(() => {
