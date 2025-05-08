@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>简谱播放器</title>
+  <script src="https://unpkg.com/tone"></script>
+</head>
+<body>
+  <h2>播放图片中的简谱</h2>
+  <button onclick="startPlayback()">播放</button>
+
+  <script>
+    const noteMap = {
+      '1': 'C4', '2': 'D4', '3': 'E4', '4': 'F4',
+      '5': 'G4', '6': 'A4', '7': 'B4',
+      '1i': 'C5', '2i': 'D5', '3i': 'E5', '4i': 'F5', '5i': 'G5', '6i': 'A5', '7i': 'B5',
+      '1.': 'C3', '2.': 'D3', '3.': 'E3', '4.': 'F3', '5.': 'G3', '6.': 'A3', '7.': 'B3',
+      '-': null
+    };
+
+    // 解析后的音符序列（按顺序）
+    const simpleScore = [
+      '3', '5',  '6', '-', '-', '3', '5',
+      '6', '-', '-', '3', '5',
+      '6', '6i', '6', '5', '6',
+      '5', '3.', '3', '3', '5',
+      '6', '-', '-', '3', '5',
+      '6', '-', '-', '3', '5',
+      '6.', '6', '6', '5', '3', '6', '1',
+      '2', '-', '-'
+    ];
+
+    const synth = new Tone.Synth().toDestination();
+
+    async function startPlayback() {
+      await Tone.start();
+
+      let i = 0;
+
+      function playNote() {
+        const symbol = simpleScore[i];
+        const note = noteMap[symbol];
+
+        if (note) {
+          synth.triggerAttackRelease(note, "8n");
+        }
+
+        i++;
+        if (i < simpleScore.length) {
+          setTimeout(playNote, 500); // 控制节奏（500ms 每个音）
+        }
+      }
+
+      playNote();
+    }
+  </script>
+</body>
+</html>
