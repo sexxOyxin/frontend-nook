@@ -14,6 +14,9 @@ api.taobao.com	taobao.com	api
 v1.user.abc.com	abc.com	    v1.user（可以嵌套）
 
 #
-document.createElement('a');
+const a = document.createElement('a');
 a.href = 'http://localhost:80'
 用浏览器解析URL
+a.protocol - http
+a.hostname - localhost
+a.port - 80
