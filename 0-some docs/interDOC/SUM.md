@@ -1,15 +1,19 @@
+跨域其实是浏览器的行为，服务请求成功发送了数据也成功返回了，但是因为浏览器的安全策略所以拿不到信息。
+
 #### 01 js 35
 
 ##### 1 数据类型
 
 1.基本类型 `6种`
 **u are so nb**
-Undefined 类型只有一个值，就是undefined，其他类型的解释也同理也同理
-String【str是不会被改变的 需要用新变量接收】 Symbol【唯一标识符、对象私有属性】
-Null【表示一个空对象指针】 Number【特殊值 NaN】
-Boolean
+Undefined 【类型只有一个值，就是undefined，其他类型的解释也同理也同理】
+String 【字符串不可变：字符串值创建后就不会被改变 str[0]='w' 这种不生效 let a = '1' a = a + 'wwww' 这种是变量赋值生成了新的字符串 a字符串值内容从来没有被修改 **作为a字符串的内容永远不会修改了，只是作为变量的a是可以被重新赋值的**】
+Symbol 【唯一标识符、对象私有属性， forin jsonstringify objectkeys 都不会遍历，但是作为数组foreach会遍历到 symbol可以加一些额外的属性的 迭代器之类的 】
+Null 【表示一个空对象指针】
+Number 【特殊值 NaN 不是数值 本来要返回的数值操作失败 而不是抛出错误】
+Boolean 布尔值
 
-2.引用类型 `多种`
+2.引用类型 - 统称为object `多种`
 Object
 Array
 Function
