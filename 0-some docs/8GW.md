@@ -1258,8 +1258,18 @@ GET会保存再浏览器历史记录中，POST不会。这点也能感受到。
 同源的定义
 那如果判断是否同源？主要根据三个维度，域名，协议，端口三个都相同才算同源。
 举个 ：
+| 页面 A                        | 页面 B                             | 是否同源 | 说明        |
+| --------------------------- | -------------------------------- | ---- | --------- |
+| `https://alpha.deepfos.com` | `https://alpha.deepfos.com`      | ✅ 是  | 完全一样      |
+| `https://alpha.deepfos.com` | `https://beta.deepfos.com`       | ❌ 否  | 子域不同      |
+| `https://alpha.deepfos.com` | `http://alpha.deepfos.com`       | ❌ 否  | 协议不同      |
+| `https://alpha.deepfos.com` | `https://alpha.deepfos.com:8080` | ❌ 否  | 端口不同      |
+| `https://deepfos.com`       | `https://alpha.deepfos.com`      | ❌ 否  | 主域一样但子域不同 |
 
-网站A网站B结果http://www.zhenai.comhttp://i.z.com不同源，域名不同http://www.zhenai.comhttp://www.z.cn不同源，域名不同http://www.zhenai.comhttps://www.z.com不同源，协议不同http://www.zhenai.comhttp://www.z.com:3000不同源，端口不同(默认端口80)
+网站A网站B结果http://www.zhenai.com http://i.z.com不同源，域名不同
+http://www.zhenai.com http://www.z.cn不同源，域名不同
+http://www.zhenai.com https://www.z.com不同源，协议不同
+http://www.zhenai.com http://www.z.com:3000不同源，端口不同(默认端口80)
 
 同源策略的作用
 ①无法用js读取非同源的Cookie、LocalStorage 和 IndexDB
