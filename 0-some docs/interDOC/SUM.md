@@ -478,6 +478,10 @@ sso认证中心校验令牌，返回有效，注册系统2
 #### 02 es6 + http
 #### 03 nodejs + webpack
 #### 04 react
+1、jsx是react的语法糖，是js的语法扩展，允许在js里面写html。
+2、组件首字母大写：如果小写转义后被当成html的标签元素了
+3、代码中没用到react也要声明引入一下，因为jsx编译以后就是React.createElement
+4、react组件只能返回一个元素，因为编译后
 #### 05 ts + css
 #### 06 git + system + design
 #### 07 vue + vue3
