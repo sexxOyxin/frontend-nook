@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            width: 600px;
+            padding: 10px;
+            margin-bottom: 10px;
+            background: #ccc;
+        }
+
+        /* .news {
+            list-style-type: circle;
+            list-style-type: square;
+            list-style-type: decimal;
+            list-style-type: lower-alpha;
+            list-style-type: upper-roman;
+            list-style-type: none;
+        } */
+        .news{
+            list-style-type: disc;
+            list-style-type: circle;
+            list-style-type: decimal;
+            list-style-type: square;
+            list-style-type: decimal-leading-zero;
+            list-style-type: georgian;
+            list-style-type: lower-alpha;
+        }
+
+        .musics {
+            /* 列表项图片类型 */
+            list-style-type: disc;
+
+            /* 列表项图标位置 */
+            list-style-position: outside;
+            /* list-style-position: inside; */
+            list-style-position: inside;
+            /* 自定义列表项图标 使用图片 */
+            list-style-image: url(../images/hot-icon.png);
+            list-style-image: url(../images/hot-icon.png);
+
+            /* 复合属性 */
+            list-style: none;
+            list-style: url(../images/arrow01.png) inside;
+        }
+
+
+        .active {
+            list-style: url(../images/hot-icon.png) outside;
+        }
+
+        /* 列表标签以外的元素设置列表样式无效 */
+        p {
+            width: 600px;
+            padding: 10px;
+            background: #900;
+            list-style: disc;
+        }
+    </style>
+</head>
+<body>
+    <p>ul自带一个40的边距</p>
+    <ul class="news">
+        <li>留韩将人，大毒付即子貂，拆到程统下留足哉洪极上郭，使梵却韦。</li>
+        <li>留韩将人，大毒付即子貂，拆到程统下留足哉洪极上郭，使梵却韦。</li>
+        <li class="active">留韩将人，大毒付即子貂，拆到程统下留足哉洪极上郭，使梵却韦。</li>
+        <li>留韩将人，大毒付即子貂，拆到程统下留足哉洪极上郭，使梵却韦。</li>
+        <li>留韩将人，大毒付即子貂，拆到程统下留足哉洪极上郭，使梵却韦。</li>
+        <li>留韩将人，大毒付即子貂，拆到程统下留足哉洪极上郭，使梵却韦。</li>
+    </ul>
+
+
+    <hr>
+
+    <ol class="musics">
+        <li>斯升你杀皮不司向得不贼弟此，别完罪，秦。</li>
+        <li>斯升你杀皮不司向得不贼弟此，别完罪，秦。</li>
+        <li class="active">斯升你杀皮不司向得不贼弟此，别完罪，秦。</li>
+        <li>斯升你杀皮不司向得不贼弟此，别完罪，秦。</li>
+        <li class="active">斯升你杀皮不司向得不贼弟此，别完罪，秦。</li>
+        <li>斯升你杀皮不司向得不贼弟此，别完罪，秦。</li>
+        <li>斯升你杀皮不司向得不贼弟此，别完罪，秦。</li>
+    </ol>
+
+    <hr>
+
+    <p>国老斗皮范身人后尝极他老朋壬贼生王发他。</p>
+    <p>国老斗皮范身人后尝极他老朋壬贼生王发他。</p>
+    <p>国老斗皮范身人后尝极他老朋壬贼生王发他。</p>
+    <p>国老斗皮范身人后尝极他老朋壬贼生王发他。</p>
+    <p>国老斗皮范身人后尝极他老朋壬贼生王发他。</p>
+</body>
+</html>

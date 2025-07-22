@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div {
+            background-color: antiquewhite;
+            border: 1px solid black;
+            width: 40px;
+            height: 20px;
+        }
+
+        span {
+            background-color: antiquewhite;
+            border: 1px solid black;
+        }
+
+        input {
+            background-color: antiquewhite;
+        }
+        </style>
+</head>
+<body>
+    <pre>
+        All in all.
+        <strong>区分行内还是块元素的标准是：是否独占一行</strong>
+        display设置为block的效果：独占一行，可调宽高
+        display设置为inline的效果：在一行，不可调宽高
+        display设置为inline的效果：在一行，可调宽高
+
+        <strong>① 默认显示模式是 block 的元素：</strong>
+        排版标签： h1~h6、p、pre、hr、div
+        列表标签： ul、ol、li、dl、dt、dd
+        表单标签： form、option
+
+        <strong>② 默认显示模式是 inline 的元素：</strong>
+        文本标签： em、strong、del、ins、sub、sup、span
+        超链接标签： a
+        表单标签： label
+
+        <strong>③ 默认显示模式是 inline-block 的元素：</strong>
+        图片标签： img
+        表单标签： input、button、textarea、select
+        框架标签： iframe
+    </pre>
+
+    <h4>这是块元素，独占一行，可调宽高</h4>
+    <div>div1</div>
+    <div>div1</div>
+    <div>div1</div>
+
+    <h4>这是行内元素，行内显式，不可调整宽高</h4>
+    <p>者艳夫说王月请幕是
+        <span>span1</span>
+        <span>span1</span>
+        <span>span1</span>
+    向音那哉朋仍责会可的。</p>
+
+    <h4>特殊的行内块，行内显示，可以调宽高</h4>
+    <input type="text">
+    <input type="text">
+    <input type="text">
+</body>
+</html>

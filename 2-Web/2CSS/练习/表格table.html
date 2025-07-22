@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            cursor:url(../commen/rabbit.png),pointer;
+        }
+        table {
+            width: 800px;
+
+            /* 列宽固定 */
+            /* table-layout: auto;
+            table-layout: fixed;
+
+            table-layout: auto;
+            table-layout: fixed; */
+            table-layout: auto;
+            table-layout: fixed;
+            /* 合并单元格边框 相邻单元格共用一个边框 */
+            border-collapse: separate;
+            border-collapse: collapse;
+
+            border-spacing: separate;
+            border-spacing: collapse;
+            /* 设置单元格之间的距离 */
+            border-spacing: 10px;
+            border-spacing: 100px;
+            /* border-spacing: 0; */
+
+
+            caption-side: top;
+            caption-side: bottom;
+            caption-side: top;
+            /* caption-side: bottom; */
+
+
+            /* 设置没有内容的单元格显示还是隐藏 */
+            empty-cells: show;
+            empty-cells: hide;
+            empty-cells: show;
+            /* empty-cells: hide; */
+        }
+
+        td,th {
+            padding: 10px;
+            border: 1px solid #999;
+        }
+
+        caption {
+            font-size: 1.5em;
+            font-weight: 800;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <!-- 表格标题 -->
+        <caption>用户信息表</caption>
+        <!-- 表格头 -->
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>电话</th>
+                <th>地址</th>
+            </tr>
+        </thead>
+        <!-- 表格体 -->
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>曹操</td>
+                <td>男</td>
+                <td>13378652389</td>
+                <td>上海市松江区</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>刘备</td>
+                <td>男</td>
+                <td>13378652388</td>
+                <td>上海市浦东区</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>高小乐</td>
+                <td>男</td>
+                <td></td>
+                <td>新疆维吾尔自治区伊犁哈萨克自治州</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>孙悟空</td>
+                <td>男</td>
+                <td>13378652386</td>
+                <td>上海市黄浦区</td>
+            </tr>
+        </tbody>
+     </table>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 先清楚所有自带的样式 */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .floatLeft {
+            float: left;
+        }
+        .floatRight {
+            float: right;
+        }
+        .float1 {
+            background: #ccc;
+            height: 80px;
+            text-align: center;
+        }
+        .container {
+            width: 960px;
+            margin: auto;
+        }
+        .LOGO {
+            width: 200px;
+        }
+        .BANNER1 {
+            width: 540px;
+            margin-left: 10px;
+        }
+        .BANNER2 {
+            width: 200px;
+        }
+        .clearfix::after {
+            content: '';
+            clear: both;
+            /* 要设置display是因为伪元素默认的 display 值是 inline，这意味着它是一个行内元素。行内元素无法清除浮动，因为它不会占据实际的垂直空间。 */
+            display: block;
+        }
+        .float2 {
+            background: #fff;
+            text-align: center;
+        }
+        .right,.up1,.down1 {
+            border: 1px solid #CCCC;
+        }
+        .up1 {
+            width: 368px;
+            height: 198px;
+        }
+        .up12 {
+            margin-left: 10px;
+        }
+        .down1 {
+            margin-top: 10px;
+            width: 178px;
+            height: 198px;
+        }
+        .right {
+            width: 200px;
+            height: 128px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 第一层 -->
+         <!-- clearfix也可以设置为overflow:hidden -->
+         <div class="clearfix">
+            <div class="float1 floatLeft LOGO">LOGO</div>
+            <div class="float1 floatLeft BANNER1">BANNER1</div>
+            <div class="float1 floatRight BANNER2">BANNER2</div>
+         </div>
+
+         <!-- 第二层菜单,不设置clear会出问题 -->
+          <div class="float1 navList" style="height: 30px; clear: both; margin-top: 10px;">菜单</div>
+
+         <!-- 中间栏目块 -->
+          <div class="clearfix" style="margin-top: 10px;">
+            <div class="float2 floatLeft">
+                <div class="up">
+                    <div class="up1 up11 floatLeft">栏目一</div>
+                    <div class="up1 up12 floatLeft">栏目二</div>
+                </div>
+                <div class="down">
+                    <div class="down1 down11 floatLeft">栏目三</div>
+                    <div class="down1 down12 floatLeft"  style="margin-left: 10px;">栏目四</div>
+                    <div class="down1 down13 floatLeft" style="margin-left: 10px;">栏目五</div>
+                    <div class="down1 down14 floatLeft" style="margin-left: 10px;">栏目六</div>
+                </div>
+            </div>
+            <div class="float2 floatRight">
+                <div class="right">栏目七</div>
+                <div class="right" style="margin-top: 10px;">栏目八</div>
+                <div class="right " style="margin-top: 10px;">栏目九</div>
+            </div>
+          </div>
+
+          <!-- 页脚 -->
+          <div class="float1 navList" style="height: 50px; clear: both; margin-top: 10px;">页脚</div>
+    </div>
+</body>
+</html>

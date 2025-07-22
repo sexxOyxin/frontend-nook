@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .item01 {
+            /* font-weight: normal; */
+            /* font-weight: bold; */
+            font-weight: bolder;
+        }
+        .item02 {
+            font-weight: lighter;
+        }
+        .item03 {
+            font-weight: 100;
+        }
+        strong {
+            font-weight: normal;
+        }
+
+        .box01 {
+            font-style: normal;
+            font-style: italic;
+        }
+
+        .box02 {
+            font-style: oblique;
+        }
+
+        em {
+            font-style: normal;
+        }
+
+        .family01 {
+            font-family: 微软雅黑;
+            font-family: "微软雅黑";
+            font-family: "Microsoft YaHei";
+        }
+
+        .family02 {
+            font-family: 宋体;
+        }
+
+        .family03 {
+            font-family: 楷体;
+        }
+
+        .family04 {
+            font-family: 毛体字体;
+        }
+
+        .family05 {
+            font-family: QTxiaotu;
+        }
+
+        .family06 {
+            font-family: "Microsoft YaHei", 微软雅黑, 黑体, sans-serif;
+        }
+
+    </style>
+</head>
+<body>
+    <pre style="font-size: large;">
+        font可以设置多个值，并且需要按顺序
+        最少设置两个值：字体大小 & 字体族科
+        <strong>粗或斜体字、字体大小、字体族科</strong>
+        复合属性写在前，子属性在后不会有影响。
+    </pre>
+    <h3>font-family 可以多列几个，叫字体列表，font-family:宋体,微软雅黑,"Microsoft YaHei"</h3>
+    <h3>sans-serif没有装饰，笔画粗细一致 </h3>
+    <h4>font-weight</h4>
+    <pre>normal：正常。
+         lighter：细。
+         bold：粗。
+         100~900数字：100~300是细体，400、500正常，600以及以上粗体</pre>
+    <div>
+        <span class="item01">后绪洋怒面将是惶</span><br>
+        <span class="item02">后绪洋怒面将是惶</span><br>
+        <span class="item03">后绪洋怒面将是惶</span><br>
+        <strong>后绪洋怒面将是惶</strong><br>
+    </div>
+
+    <h4>font-style</h4>
+    <pre>normal：正常。
+         italic：斜体字。</pre>
+    <div>
+        <span class="">游到下一圣教定皮。</span><br>
+        <span class="box01">游到下一圣教定皮。</span><br>
+        <span class="box02">游到下一圣教定皮。</span><br>
+        <em>游到下一圣教定皮。</em><br>
+    </div>
+
+    <h4>font-family</h4>
+    <p class="family01">订联绛01必上之中，孔几罚，王韦家磊望导是。Lorem ipsum dolor sit amet.</p>
+    <p class="family02">订联绛02必上之中，孔几罚，王韦家磊望导是。Lorem ipsum dolor sit amet.</p>
+    <p class="family03">订联绛03必上之中，孔几罚，王韦家磊望导是。Lorem ipsum dolor sit amet.</p>
+    <p class="family04">订联绛04必上之中，孔几罚，王韦家磊望导是。Lorem ipsum dolor sit amet.</p>
+    <p class="family05">订联绛05必上之中，孔几罚，王韦家磊望导是。Lorem ipsum dolor sit amet.</p>
+    <p class="family06">订联绛06必上之中，孔几罚，王韦家磊望导是。Lorem ipsum dolor sit amet.</p>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .box {
+            /* vertical-align: middle; */
+            /* vertical-align: top; */
+            /* vertical-align: bottom; */
+        }
+
+    </style>
+</head>
+<body>
+    <h4>行内块有左右空白</h4>
+    <div style="background-color: rgb(228, 245, 217); height: 50px;">
+        <div class="box" style="display: inline-block; background: gainsboro; width: 80px; height: 30px">div1</div>
+        <div class="box" style="display: inline-block; background: gainsboro; width: 80px; height: 30px">div2</div>
+        <div class="box" style="display: inline-block; background: gainsboro; width: 80px; height: 30px">div3</div>
+    </div>
+
+    <h4>行内块有下边有空白，div中没有内容时</h4>
+    <div style="background-color: rgb(228, 245, 217);">
+        <div class="box" style="display: inline-block; background: gainsboro; width: 80px; height: 30px"></div>
+    </div>
+    <div style="background-color: rgb(228, 245, 217);">
+        <div class="box" style="display: inline-block; background: gainsboro; width: 80px; height: 30px"></div>
+    </div>
+
+
+    <h4>内容多少会影响行内块的排序</h4>
+    <div>
+        <div class="box" style="display: inline-block; background: gainsboro; padding: 5px; width: 80px; height: 30px">div1</div>
+        <div class="box" style="display: inline-block; background: gainsboro; padding: 5px; width: 80px; height: 30px">这里需要多一些文字</div>
+        <div class="box" style="display: inline-block; background: gainsboro; padding: 5px; width: 80px; height: 30px"></div>
+    </div>
+</body>
+</html>

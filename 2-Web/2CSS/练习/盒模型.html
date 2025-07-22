@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .item1 {
+            margin-top: 20px;
+            border: 4px solid rebeccapurple;
+        }
+
+        span {
+            font-size: 20px;
+            background: #ccc;
+        }
+
+        .item2 {
+            display: inline-block;
+            padding: 10px;
+            color: #fff;
+            background: #900;
+        }
+
+        .wrapper {
+            border: 2px dashed #999;
+            padding: 20px;
+            width: 1000px;
+            height: 200px;
+            background: #ccc;
+        }
+
+        .box {
+            background: #099;
+
+            margin-left: 20px;
+            margin-right: 30px;
+            padding: 20px;
+            border: 4px solid #bbb;
+        }
+
+        .box4 {
+            width: 100px;
+            padding: 20px;
+            color: #900;
+            background: #ccc;
+        }
+        .box01 {
+            /* 边框风格 */
+            border-style: none;
+            border-style: solid;
+            border-style: dashed;
+            border-style: dotted;
+            border-style: double;
+            /* border-style: groove; */
+
+            /* 边框颜色 */
+            border-color: #099;
+
+            /* 边框宽度 */
+            border-width: 10px;
+
+            /* 复合属性 */
+            border: solid;
+            border: 1px solid #080;
+        }
+
+
+        .box02 {
+            /* 只设置左边框 */
+            border-left-style: solid;
+            border-left-style: dotted;
+
+            border-left-color: #080;
+            border-left-width: 10px;
+
+            /* 同时设置左边框的风格、颜色、宽度 */
+            border-left: 10px solid;
+
+            border-top: 2px solid #999;
+            border-bottom: 2px solid #999;
+            border-right: 2px solid #999;
+
+        }
+
+        .box03 {
+            border-style: solid;
+            border-style: solid dashed;
+
+            border-color: #990 #099;
+            border-color: #990 #099 #909;
+
+            border-width: 10px 15px 12px 20px;
+
+        }
+    </style>
+</head>
+<body>
+    <!-- 概念 -->
+    <div style="border: 4px solid green;">这是一个div，可以看出body有8px的外边距</div>
+
+    <!-- 宽高设置 -->
+    <h4>1、宽高设置</h4>
+    <div class="item1 width" style="min-width: 200px; max-width: 600px;">
+        这里设置元素默认宽度min-width
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, eaque?
+    </div>
+    <div class="item1 height" style="min-height: 200px; max-height: 400px;">
+        这里设置元素默认高度min-height, 200~400
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, eaque?
+    </div>
+
+    <!-- 默认宽高 -->
+    <h4>2、默认宽高</h4>
+    <p>行内元素不可调宽高</p>
+    <span></span>
+    <span>gaoxiaole</span>
+
+    <p>行内块元素可调</p>
+    <div class="item2"></div>
+    <div class="item2">这是行内块，display:inline-block</div>
+
+    <p>块级元素可调</p>
+    <div class="wrapper">
+        <div class="box"></div>
+    </div>
+
+    <!-- 内边距 -->
+     <h4 style="margin-bottom: 0px;">3、padding-内边距</h4>
+     <pre>
+        padding复合属性设置规则
+        /* 1个值: 上下左右 */
+        padding: 20px;
+        /* 2个值： 上下 左右*/
+        padding: 40px 30px;
+        /* 3个值： 上 左右 下*/
+        padding: 10px 20px 30px;
+        /* 4个值： 上 右 下 左*/
+        padding: 15px 25px 35px 45px;
+     </pre>
+     <div style="display: inline-block; border: 2px solid royalblue; margin-top: 10px; width:fit-content">什么都不设置</div>
+     <div style="display: inline-block; padding: 40px; border: 2px solid royalblue; margin-top: 10px; width:fit-content">内边距全部40px</div>
+     <div style="display: inline-block; padding: 20px 40px; border: 2px solid royalblue; margin-top: 10px; width:fit-content">20,40 上下20-左右40</div>
+     <div style="display: inline-block; padding: 20px 15px 40px; border: 2px solid royalblue; margin-top: 10px; width:fit-content">20,15,40 上20-左右15-下40</div>
+     <div style="display: inline-block; padding: 10px 20px 30px 40px; border: 2px solid royalblue; margin-top: 10px; width:fit-content">10,20,30,40 上10-右20-下30-左40</div>
+
+     <!-- 边框 -->
+     <h4>4、border-边框</h4>
+     <div style="display: inline-block;">
+        <span class="box4 box01">所有边框，元素检查查看</span>
+        <span class="box4 box02">单边边框border-left-style:</span>
+        <span class="box4 box03">border-style border-color border-width 也是复合属性</span>
+     </div>
+
+     <!-- 外边距 -->
+     <h4>5、margin-外边距</h4>
+     <div style="border: 2px solid salmon; width: 200px; margin: auto;">
+        <div style="border: 1px solid teal; background-color: antiquewhite; margin: 10px;">margin: 10px</div>
+        <div style="border: 1px solid rgb(114, 194, 39); background-color: rgb(87, 87, 87); margin: 20px;">margin: 20px</div>
+        <div style="border: 1px solid rgb(218, 153, 22); background-color: rgb(250, 215, 235); margin: 30px;">margin: 30px</div>
+     </div>
+
+     <!-- 外边距塌陷  -->
+      <h4 style="margin-bottom: 0px;">6、外边距塌陷</h4>
+      <pre>
+        最上面元素的上外边距、最下面元素的下外边距会塌陷到父元素
+        解决方案：
+        - 方案一： 父元素设置边框
+        - 方案二： 父元素设置内边距
+        - 方案三： 父元素开启BFC，设置 overflow:hidden;
+      </pre>
+      <div style="background: #ccc; width: 500px;">
+        <div style="margin-top: 10px; background: #e8d7df; border:2px solid rebeccapurple; width: auto; height: 30px;">我的上外边距是10px但是没效果了，塌陷到父元素上面了</div>
+        <div style="margin-top: 10px; background: #f9df70; border:2px solid rebeccapurple; width: auto; height: 30px;">嘻嘻我是安全崽</div>
+        <div style="margin-top: 10px; margin-bottom: 10px; background: #f7da94;border:2px solid rebeccapurple; width: auto; height: 30px;">我的下外边距是10px但是没效果了，塌陷到父元素下面了</div>
+      </div>
+
+      <!-- 外边距合并 -->
+      <h4 style="margin-bottom: 0px;">7、外边距合并</h4>
+      <pre>上面兄弟元素的下外边距会与下面兄弟元素的上外边距合并，两者之间距离取较大的外边距</pre>
+      <div style="overflow:hidden; background: #ccc; width: 500px;">
+        <div style="margin-top: 10px; background: #e8d7df; border:2px solid rebeccapurple; width: auto; height: 30px;">外层overflow设置hidden，解决塌陷问题</div>
+        <div style="margin-top: 10px; margin-bottom: 20px; background: #f9df70; border:2px solid rebeccapurple; width: auto; height: 30px;">我的下边距20px，我的大我说了算</div>
+        <div style="margin-top: 10px; margin-bottom: 10px; background: #f7da94;border:2px solid rebeccapurple; width: auto; height: 30px;">我的上边距10px，下边距10px</div>
+      </div>
+
+       <!-- 内容溢出 -->
+       <h4 style="margin-bottom: 0px;">8、内容溢出</h4>
+       <pre>
+        overflow设置溢出的显示方式
+        visible：显示，默认值
+        hidden：隐藏
+        scroll：滚动条
+        auto：自动。
+       </pre>
+       <div style="overflow:scroll; background: #ccc; width: 500px; height: 200px;">
+        <div style="margin-top: 10px; background: #e8d7df; border:2px solid rebeccapurple; width: 800px; height: 30px;">overflow有visible、hidden、scroll、auto；还有overflow-x和overflow-y，只设置一边的</div>
+        <div style="margin-top: 10px; margin-bottom: 20px; background: #f9df70; border:2px solid rebeccapurple; width: 800px; height: 30px;">这里得写一万吨字体,Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, quos.</div>
+        <div style="margin-top: 10px; margin-bottom: 10px; background: #f7da94;border:2px solid rebeccapurple; width: 800px; height: 30px;">这里得写一万吨字体,Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium, hic?</div>
+        <div style="margin-top: 10px; background: #e8d7df; border:2px solid rebeccapurple; width: 800px; height: 30px;">这里得写一万吨字体,Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero, corporis?</div>
+        <div style="margin-top: 10px; background: #6f5e66; border:2px solid rebeccapurple; width: 800px; height: 30px;">这里得写一万吨字体,Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero, corporis?</div>
+      </div>
+      <div style="background: #099; height: 50px; width: 500px;">固定上一个div高度的话，都溢出到我这里来了。。</div>
+
+       <!-- 元素隐藏 -->
+       <h4 style="margin-bottom: 0px;">9、元素隐藏</h4>
+       <pre>
+        visibility:hidden 占位置
+        display:none 消失
+       </pre>
+       <div>
+           <div style="display: inline-block; visibility: hidden; background: rgb(242, 210, 137);">这是visibility=hidden</div>
+        <div style="display: inline-block; display: none;  background: #099;">这是display=none</div>
+       </div>
+
+      <!-- 样式继承 -->
+      <h4 style="margin-bottom: 0px;">10、样式继承</h4>
+      <pre>
+        1. 字体样式 font-size、font-weight、font-style font-family、font
+        2. 文字颜色 color
+        3. 文本样式 letter-spacing、word-spacing、text-decoration、text-indent、text-align、line-height （vertical-align 不可以被继承）
+      </pre>
+
+       <!-- 自带样式 -->
+       <h4 style="margin-bottom: 0px;">11、自带样式</h4>
+       <pre>
+        标题h1~h6 自带 font-size、font-weight、上下外边距
+        p 自带 上下外边距
+        em 自带 font-style
+        strong 自带 font-weight
+        a 自带 color、text-decoration、cursor
+        ul、ol 自带 padding-left、上下外边距
+        ...
+       </pre>
+
+       <!-- 自带&继承 -->
+       <h4 style="margin-bottom: 0px;">12、自带&继承</h4>
+       <pre>直接设置的样式 > 自带的样式 > 继承的样式</pre>
+
+</body>
+</html>

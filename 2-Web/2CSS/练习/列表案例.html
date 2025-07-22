@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .ull {
+            list-style: url(../../CLASS/02CSS/07/777/01-作业讲解/images/photo-icon.gif) inside;
+            padding: 0px;
+        }
+        .oll {
+            list-style: url(../../CLASS/02CSS/07/777/01-作业讲解/images/video-icon.gif);
+        }
+        .qubie {
+            list-style: none;
+        }
+        .qubie .active {
+            list-style: url(../../CLASS/02CSS/07/777/01-作业讲解/images/hot-icon.png);
+        }
+    </style>
+</head>
+<body>
+    <div class="title">使用ul</div>
+    <ul class="ull">
+        <li>ul有默认的40px的padding</li>
+        <li>list-style: url() inside</li>
+        <li>设置好inside以后，padding就可以为0了</li>
+    </ul>
+
+    <div class="title">使用ol</div>
+    <ol class="oll">
+        <li>这里没有设置inside，也没有调整padding</li>
+        <li>的磊国官争日汪商元币沫骂为才宋予褒量币。</li>
+        <li>的磊国官争日汪商元币沫骂为才宋予褒量币。</li>
+        <li>的磊国官争日汪商元币沫骂为才宋予褒量币。</li>
+    </ol>
+
+    <div class="title">区别设置</div>
+    <ul class="qubie">
+        <li class="active">由爱考肯耳如在，台法者皇领嗣，能法也中。</li>
+        <li>由爱考肯耳如在，台法者皇领嗣，能法也中。</li>
+        <li>由爱考肯耳如在，台法者皇领嗣，能法也中。</li>
+        <li class="active">由爱考肯耳如在，台法者皇领嗣，能法也中。</li>
+    </ul>
+
+    <div>样式一览</div>
+    <ul>
+        <li style="list-style-type: disc;">list-style-type: disc</li>
+        <li style="list-style-type: circle;">list-style-type: circle</li>
+        <li style="list-style-type: decimal;">list-style-type: decimal</li>
+        <li style="list-style-type: square;">list-style-type: square</li>
+        <li style="list-style-type: decimal-leading-zero;">list-style-type: decimal-leading-zero</li>
+        <li style="list-style-type: georgian;">list-style-type: georgian</li>
+        <li style="list-style-type: lower-alpha;">list-style-type: lower-alpha</li>
+        <li style="list-style-position: outside;">列表项图标位置list-style-position: outside</li>
+        <li style="list-style-position: inside;">list-style-position: inside</li>
+        <li style="list-style: none;">没有样式list-style: none</li>
+    </ul>
+</body>
+</html>

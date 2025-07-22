@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /*
+        id筛选器    # {}
+        类筛选器、伪类选择器    . {}   元素和类名是多对多的关系
+        标签筛选器  h1 {}
+        全局筛选器  * {}
+        */
+
+        /*
+        <div class="container">
+        <p>直接子元素</p>
+        <section>
+            <p>深层后代元素</p>
+        </section>
+        </div>
+        后代选择器    选择器1 选择器2 {} div p{} 会选择div后面的所有的p，无论层次深浅
+        子代选择器    选择器1 > 选择器2 {} div > p {} 只会选择div下的最近子元素
+        交集选择器    选择器1选择器2 {} eg.  div.active
+        并集选择器    选择器1,选择器2 {}
+
+        伪类选择器
+        :link			选择未访问过的超链接 :link{}
+        :visited		选择已访问过的超链接 a:link{}
+        :hover			鼠标悬停在元素上 a :hover{}
+        :active			鼠标悬停在元素上且鼠标按键按下不抬起
+        多个伪类选择器一起使用，请按照 :link、:visited、:hover、:active 顺序书写 (love hate 记忆法)
+        */
+    </style>
+</head>
+<body>
+    <img src="commen/colorPaint40x40.png" width="200" height="200">
+    <img src="commen/colorPaint40x40.png" style="width: 200px;height: 200px;">
+
+    <!--
+    css的长度单位
+    px 像素
+    em 字体大小倍数，默认是16px 1.5em=1.5*16=24px
+    % 宽高参照父元素的宽高，字体大小参照默认的
+    -->
+
+    <!--
+    background 背景颜色
+    rgb：red、green、blue，计算机三原色 都可以使用0~255之间的数据标识，共有256*256*256种可能
+    十六进制：六位十六进制的数字表示颜色，每两位表示一个原色
+    -->
+
+    <!-- 选择器 行内样式大于所有的选择器 -->
+     <!-- 元素和类名是多对多的关系 -->
+     <div class="box item"></div>
+     <div class="box"></div>
+
+     <!-- 全局 *{}-->
+
+
+
+</body>
+</html>
