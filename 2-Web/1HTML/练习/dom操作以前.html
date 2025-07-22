@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #84c98e;
+        }
+
+        .close {
+            margin-left: 80px;
+        }
+
+        .coloo {
+            color: aqua;
+        }
+
+        button {
+            margin-top: 30px;
+            margin-left: 3.5px;
+        }
+
+        .pppp {
+            opacity: 0;
+            transition: all 0.5s;
+        }
+    </style>
+</head>
+
+<body>
+<h3>例子</h3>
+<p title="选择你最喜欢的水果." >你最喜欢的水果是？</p>
+<ul>
+    <li>苹果</li>
+    <li>橘子</li>
+    <li>菠萝</li>
+</ul>
+
+<ul class="ulF">
+        <li>第1个孩子</li>
+        <li>第2个孩子</li>
+        <li>第3个孩子</li>
+        <li>第4个孩子</li>
+        <li>第5个孩子</li>
+        <p>我是p标签-我不变色</p>
+</ul>
+
+    <!-- <div>box</div>
+    <ul class="nav">
+        <li class="one">我的首页</li>
+        <li class="two">产品介绍</li>
+        <li class="three">联系方式</li>
+        <li class="four">联系方式</li>
+    </ul> -->
+    <!-- <div data-id="1">1</div>
+    <div data-id="2">2</div>
+    <div data-id="3 ">3</div>
+    <input type='checkbox'> -->
+    <tr>
+        <th><input type="checkbox" class="checkAll"><span>全选</span></th>
+        <th><input type="checkbox" class="ck"><span>1</span></th>
+        <th><input type="checkbox" class="ck"><span>2</span></th>
+        <th><input type="checkbox" class="ck"><span>3</span></th>
+    </tr>
+    <div>
+        <input class="input">
+        <button class="send">发布</button>
+        <p class="pppp">0/200字</p>
+        <p class="talk" style="display: none;">评论：</p>
+    </div>
+    <div class="box">
+        <!-- <div class="close">x</div> -->
+        <p class="ppName">是：</p>
+        <button class="start">开始</button>
+        <button class="end">结束</button>
+    </div>
+    <button class="btn">阅读倒计时ing(5)</button>
+    <script>
+        window.addEventListener('scroll',()=>{
+            console.log(document.documentElement.scrollTop);
+        })
+        // 事件委托
+        const ulF = document.querySelector('.ulF');
+        ulF.addEventListener('click',(e)=>{
+            if(e.target.tagName === 'LI'){
+                e.target.style.color = 'red';
+            }
+        })
+
+        // 复选框全选 - 利用CSS复选框选择器，选择被选中的,使用CSS伪类选择器
+        const checkAll = document.querySelector('.checkAll');
+        const cks = document.querySelectorAll('.ck');
+        checkAll.addEventListener('click', () => {
+            for (let i = 0; i < cks.length; i++) {
+                cks[i].checked = checkAll.checked;
+            }
+        })
+        for (let i = 0; i < cks.length; i++) {
+            cks[i].addEventListener('click', () => {
+                checkAll.checked = document.querySelectorAll('.ck:checked').lengt === cks.length;
+                // document.querySelectorAll('.ck:checked').length === cks.length ? checkAll.checked = true : checkAll.checked = false;
+            })
+        }
+
+        // 发布评论
+        const input = document.querySelector('.input');
+        const pp = document.querySelector('.pppp');
+        const talk = document.querySelector('.talk');
+        input.addEventListener('focus', () => {
+            // pp.classList.add('nono');
+            pp.style.opacity = 1;
+        });
+        input.addEventListener('blur', () => {
+            pp.style.opacity = 0;
+            talk.style.display = 'none';
+            // pp.classList.remove('nono');
+        });
+        input.addEventListener('input', () => {
+            let len = input.value.length;
+            pp.innerHTML = `${len}/200字`;
+        })
+        input.addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') {
+                if (input.value.trim() !== '') {
+                    talk.style.display = 'block';
+                    talk.innerHTML = `评论:${input.value.trim()}`;
+                }
+                input.value = '';
+                pp.innerHTML = '0/200字';
+            }
+        });
+
+        // 随机选择第几名
+        let stName = 0;
+        let randomName;
+        const List = ['a', 'b', 'c'];
+        const start = document.querySelector('.start');
+        const ppName = document.querySelector('.ppName');
+        start.addEventListener('click', () => {
+            stName = setInterval(() => {
+                randomName = Math.floor(Math.random() * List.length);
+                ppName.innerHTML = `是:${List[randomName]}`;
+            }, 40)
+        });
+        const end = document.querySelector('.end');
+        end.addEventListener('click', () => {
+            clearInterval(stName);
+            ppName.innerHTML = `是:${List[randomName]}`;
+            List.splice(randomName, 1);
+            if (List.length === 1) {
+                start.disabled = true;
+                end.disabled = true;
+                console.log('剩余：', List);
+            }
+        })
+
+
+        // 阅读按钮
+        const btn = document.querySelector('.btn');
+        let counter = 5;
+        let sttt = setInterval(() => {
+            counter--,
+                btn.innerHTML = `阅读倒计时ing(${counter})`;
+            if (counter === 0) {
+                clearInterval(sttt);
+                btn.disabled = false;
+                btn.innerHTML = '同意';
+                btn.addEventListener('click', () => {
+                    btn.innerHTML = '已同意';
+                })
+            }
+        }, 1000)
+
+        // 获取表单的值
+        // const one = document.querySelector('div');
+        // console.log(one.dataset.id);
+        // const uname = document.querySelector('input');
+        // uname.checked=true;
+        // setInterval(()=>console.log('一秒一次'),1000)
+        // const ul = document.querySelector('.nav');
+        // ul.classList.add('coloo');
+        // ul.classList.toggle('box');
+        // // ul.className = 'coloo box';
+        // document.querySelector('div').className = 'box';
+        // let obj = {
+        //     p:['hello',{y:'world'}]
+        // const str = 'aaaaaaaaaa';
+        // // let {length : len} = 'aaaaaaaaaa';
+        // let {length : len} = 'hello';
+        // console.log("str",length)
+        // const {log} = console;
+        // log('try');
+        // let [x = 1, y = x ] = [2];
+        // console.log('x',x);
+        // console.log('y',y);
+        // // console.log('d',d);
+        // // 箭头函数
+        // // sort()
+        // const values = [1, 2, 3, 4];
+        // const result = values.sort((a, b) => a -b )
+        // // 扩展运算符
+        // obj['a'+'v'] = 123;
+        // 迭代器
+        // let num = {
+        //     from:5,
+        //     to:10,
+        //     [Symbol.iterator](){
+        //         // this.current = 5    this.from = 5
+        //         this.current = this.from;
+        //         // this.current = 5   this.from = 5
+        //         console.log('this', this)
+        //         return this;
+        //     },
+        //     next(){
+        //         if(this.current <= this.to){
+        //             return{done:false,value:this.current++}
+        //         }
+        //         else return{done:true};
+        //     }
+        // };
+        // for(let s of num){
+        //     console.log(s);
+        // }
+        // // 迭代器
+        // let it = idMaker();
+        // console.log('it.next().value',it.next().value) //0
+        // console.log('it.next().value',it.next().value) //1
+        // console.log('it.next().value',it.next().value) //2
+        // console.log('it.next().value',it.next().value) //3
+        // function idMaker() {
+        //     var index = 0;
+        //     return {
+        //         next: function() {
+        //             return {value: index++, done: false};
+        //         }
+        //     };
+        // }
+        // const arr1 = ['a','b','c',1,2,3];
+        // const res = [];
+        // console.log('arr1',arr1);
+        // arr1.map((index,value) => {
+        //     console.log(index,value);
+        //     res.push(value);
+        // });
+        // console.log(res)
+        // const arr2 = [{name:'name'},{age:6}];
+        // console.log('arr2',arr2);
+        // const arr3 = [{name:'complex'},[1,2,3]];
+        // console.log('arr3',arr3);
+        // const arr4 = [{name:'comcomcom'},[{name4:'comName',age4:999},{name:00000}]];
+        // console.log('arr4',arr4);
+
+        // setTimeout(() => {
+        //     console.log('1');
+        //     setTimeout(() => {
+        //         console.log('2');
+        //     }, 2000);
+        // }, 1000);
+        // const p = new Promise((resolve,reject) => {
+        //     setTimeout(()=>{
+        //         console.log('1');
+        //         resolve('hhhh');
+        //     },1000)
+        // }).then(()=>{
+        //     setTimeout(()=>{
+        //         console.log('2');
+        //     },5000)
+        // });
+        // p.then(resolve => {
+        //     console.log({resolve});
+        // }).catch(error => {
+        //     console.log({error});
+        // });
+
+        // 案例
+        // console.log('开始', new Date().toLocaleString());
+        // var createPromise = function(time) {
+        //     return new Promise((resolve, reject) => {
+        //         setTimeout(() => {
+        //             console.log('time', time);
+        //
+        //             resolve(time)
+        //         }, time * 1000)
+        //     })
+        // }
+        //
+        // var arr = [createPromise(2), createPromise(3), createPromise(1), createPromise(4), createPromise(5)];
+        // Promise.all(arr).then(data => {
+        //     console.log('data', data)
+        //     console.log('结束', new Date().toLocaleString());
+        // })
+        // const num = [5, 9];
+        // const sum = num.reduce((acc, cur, index, arr) => {
+        //     console.log(`acc:${acc},cur${cur},index:${index},arr:${arr}`);
+        //     return acc + cur;
+        // }, 0);
+        // console.log("Final sum:", sum);
+
+        // const Fsum = num.reduceRight((acc, cur, index, arr) => {
+        //     console.log(`acc:${acc},cur${cur},index:${index},arr:${arr}`);
+        //     return acc + cur;
+        // }, 0);
+        // console.log("Fsum:", Fsum);
+
+        // const data = [
+        //     { name: 'Alice', age: 25 },
+        //     { name: 'Bob', age: 30 },
+        //     { name: 'Charlie', age: 22 }
+        // ];
+        // const merged = data.reduce((accumulator, currentValue) => ({ ...accumulator, ...currentValue }), {});
+        // console.log(merged);
+
+        // const a = [1, 2, 3];
+        // console.log(a.reverse());
+
+    // 选出几等奖的案例 random适用于很多 刷新修改样式
+    // const nav = document.querySelector('.nav');
+    // const li = document.querySelectorAll('.nav li');
+    // for(let i = 0; i < li.length; i++){
+    //     li[i].style.color = 'red';
+    //     console.dir(li[i]);
+    // }
+    // console.log(li);
+    // console.dir(nav);
+    // const arr = ['刘','王','张','杨'];
+
+    // const random1 = Math.floor(Math.random()*arr.length);
+    // document.querySelector('.nav .one').innerHTML = arr[random1];
+    // arr.splice(random1,1);
+
+    // const random2 = Math.floor(Math.random()*arr.length);
+    // document.querySelector('.nav .two').innerHTML = arr[random2];
+    // arr.splice(random2,1);
+
+    // const random3 = Math.floor(Math.random()*arr.length);
+    // document.querySelector('.nav .three').innerHTML = arr[random3];
+    // arr.splice(random3,1);
+
+    // document.querySelector('.nav .four').innerHTML = arr[0];
+
+    // // 解绑简单版
+    // btn.onclick = () => {
+    //     alert('点击了'); // 只被触发一次
+    //     btn.onclick = null;
+    // }
+
+    // // 匿名函数无法被解绑 可以将函数抽出来
+    // btn.addEventListener('click',fn)
+    // btn.removeEventListener('click',fn)
+        const strOne = '';
+        const strLot = '      ';
+        console.log('111111111',strOne === strLot);
+        const strNo = strLot.trim();
+        console.log('222222222',strOne === strNo);
+    </script>
+</body>
+
+</html>

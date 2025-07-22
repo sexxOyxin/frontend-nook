@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+</head>
+
+<body>
+    <table id="myTable">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Location</th>
+        </tr>
+        <tr>
+            <td>John Doe</td>
+            <td>25</td>
+            <td>New York</td>
+        </tr>
+        <tr>
+            <td>Jane Doe</td>
+            <td>30</td>
+            <td>London</td>
+        </tr>
+    </table>
+
+    <button onclick="exportToExcel()">导出到Excel</button>
+
+    <script>
+        function exportToExcel() {
+            // 获取HTML表格的引用
+            var table = document.getElementById("myTable");
+
+            // 创建一个工作簿
+            var workbook = XLSX.utils.book_new();
+
+            // 创建一个工作表
+            var worksheet = XLSX.utils.table_to_sheet(table);
+
+            // 将工作表添加到工作簿
+            XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+
+            // 保存工作簿为Excel文件
+            XLSX.writeFile(workbook, "差异付款计划表.xls");
+        }
+    </script>
+</body>
+
+</html>

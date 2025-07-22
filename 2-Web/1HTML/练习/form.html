@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3><a href="all-html-tags.html">回到首页</a></h3>
+    <h3><a href="all-input.html">跳转到input</a></h3>
+    <h3><a href="form.html">跳转到表单form</a></h3>
+    <h3><a href="html-layout.html">跳转到layout布局</a></h3>
+    <h3><a href="media.html">跳转到多媒体</a></h3>
+    <h3><a href="resume.html">跳转到table练习</a></h3>
+    <h3>
+        name的作用<br>
+        <mark>突然get到双标签的魅力了，它可以让html知道标签内的东西属于该标签</mark><br>
+        1、用于给标签设置标识，需要和后端对应<br>
+        2、多个单选框要实现单选需要设置相同name<br>
+        3、下拉框需要设置到select上<br>
+        4、提交、重置、不同按钮type=button，不用加name，因为不是提交到后端的数据<br>
+        表单相当于一把枪，数据是子弹，按钮是扳机，不能把扳机也提交出去<br>
+    </h3>
+
+    <!-- 这是百度的后端搜索程序 input中的wd属性可以直接提交到百度 -->
+    <form action="http://www.baidu.com/s" target="_blank">
+        <label for="testBaidu">点击搜索新标签页跳转百度搜索</label>
+        <input type="text" id="testBaidu" maxlength="5" name="wd">
+        <button>一个button</button>
+    </form>
+    <hr>
+
+    <form>
+        <input type="text" placeholder="text" value="这是通过value属性默认显示"><br>
+        <input type="password" placeholder="password"><br>
+        <input type="number" placeholder="number"><br>
+        <input type="color"><br>
+        <input type="radio" name="gender" value="这是会提交的value">男
+        <input type="radio" name="gender" value="other">其他
+        <input type="radio" name="gender" checked>女<br>
+        <input type="checkbox">sing
+        <input type="checkbox">dance
+        <input type="checkbox" checked>rap<br>
+        <h4>这里需要注意一下url的变化</h4>
+        <input type="submit">
+        <input type="submit" value="这里是设置了value">
+        <button type="submit">这是button双标签，type默认值就是submit</button>
+        <button>登录</button>
+        <br>
+        <input type="reset">
+        <button type="reset" disabled>重置reset</button><br>
+        <p>这是textarea</p>
+        <textarea rows="3" cols="3"></textarea><br>
+        <select>
+            <option>这是select</option>
+            <option>这是option</option>
+            <option selected>选中的</option>
+        </select>
+
+    </form>
+</body>
+</html>

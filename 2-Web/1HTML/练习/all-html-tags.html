@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<!-- head中的内容不向用户展示 -->
+
+<head>
+    <!-- 字符集编码 -->
+    <!-- <meta charset="UTF-8"> -->
+    <!-- <meta http-equiv="content-type" content="text/html;charset=utf-8"> -->
+
+    <!-- 网页关键字 -->
+    <!-- <meta name="keywords" content="8-12个以英文逗号隔开的单词/词语"> -->
+
+    <!-- 网页描述信息 -->
+    <!-- <meta name="description" content="80字以内的一段话，与网站内容相关"> -->
+
+    <!-- 设置完美视口 -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+
+    <!-- 设置网页刷新 -->
+    <!-- <meta http-equiv="refresh" content="3"> -->
+    <!-- 定时跳转 -->
+    <!-- <meta http-equiv="refresh" content="10,url=http://www.atguigu.com"> -->
+
+    <!-- 外链式引入css -->
+     <!-- <link rel="stylesheet" href=""> -->
+
+    <meta charset="UTF-8">
+    <!-- 浏览器图标，16px的正方形 -->
+    <link rel="icon" href="commen/favicon.ico" type="image/x-icon" />
+
+    <title>Here are all tags</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- defer 确保在加载脚本之前浏览器已经解析了所有的 HTML 内容 -->
+    <script src="" defer></script>
+</head>
+
+<body>
+    <h3><a href="all-html-tags.html">回到首页</a></h3>
+    <h3><a href="all-input.html">跳转到input</a></h3>
+    <h3><a href="form.html">跳转到表单form</a></h3>
+    <h3><a href="html-layout.html">跳转到layout布局</a></h3>
+    <h3><a href="media.html">跳转到多媒体</a></h3>
+    <h3><a href="resume.html">跳转到table练习</a></h3>
+
+    <!-- 分隔线 -->
+    <hr>
+    <p title="所有标签都有title属性">鼠标hover，所有标签都有title属性</p>
+
+    <address>这里是address标签，Chris Mills, Manchester, The Grim North, UK</address>
+
+    <h4 id="turnTo">h1~h6 标题，当前是h4，并且这是一个<abbr title="这是abbr的title属性">abbr</abbr></h4>
+
+    <p>属性lang="ja" <span lang="ja">ご飯が熱い。</span></p>
+
+    <!-- 换行 -->
+    <br>
+
+    <pre>这是pre标签     可以保留所有空格
+        和换行</pre>
+
+    <p>这是一个&lt;p&gt;标签，用&lt;em&gt来<em>emphasis强调读音</em>，用&lt;strong&gt;来<strong>强调字体</strong>，<mark>这是mark</mark></p>
+    <p>这是一个&lt;p&gt;标签，用&lt;ins&gt来<ins>ins增加的</ins>，用&lt;del&gt;来<del>删除字体，多用于降价。。</del></p>
+
+    <p>表象元素：<b>b加粗</b>, <i>i斜体</i>， <u>u下划线</u></p>
+
+    <p>这是下标<sub>sub</sub>， 这是上标<sup>sup</sup></p>
+
+    <p>
+        <a title="这里是title属性哦"
+            href="https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks">这是一个a标签，鼠标hover看title，相对路径<strong>../</strong>代表上一层dic</a>
+    </p>
+
+    <p>
+        <a href="#turnTo">点我 通过 a 的 herf 绑定 id 跳转到 h1~h6</a>
+    </p>
+
+    <a href="data:text/plain,Hello%20World!" download="hello.txt">
+        下载文本文件
+    </a>
+    <a href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAnCAIAAADcj7x9AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAEXRFWHRTb2Z0d2FyZQBTbmlwYXN0ZV0Xzt0AAAKPSURBVFiF7ZjPaxNBFMffJNtuSMRKa6Q/DsYiUqsUwVOR+vMknsR/oCg9CCLoQXIpFqwHL3rwYEURbwqKeLBWpE3xB4oHxdJNw8bFRmxsspuKqdkfs7vZ8VCUqA1NZifRhXxPuzvz3vvMMPPmzSJCCHhBGGOMMSEEIYS8Ag0AhBBVVW3b9hL0inRd9x40APj+NQCNGtD1UgP6p0TF7L0s7bgiiYpZC/81gT7zaDGh4DkZnx1frIV/9tDv0sZEsrDy/FgsxLOYeQj20KPTcunr+Um5XE9qMYaOZ/HD+PfSLw+E5Q85xiubMfTFaeWPA5YAXIgxnmxm0KrpPEkW7s7k/266M5OfklTVdFjFoqw9DJu8TGmzGUNUcDJnJmScKdhrWrWv47Zv4rdtbO4J8zvbAwORIM8hiuiU0Puuzz9PaRSGpTrQHYoNRSgMKZdHksXekpYosyEl9M1jnZy77cD5YOxoF50tfT09JalHbn/CRRpz3o/GBzcf2hqiC+3qEvAipR2+lVKt6jyEmtDE8chAJEgd1+3N5W3aOHhjfhlXms7W877Y0JbdXQE3QRlct95/MfqvfTTstf0EOPT6ZPeuTlfEwORw6esIOJUN3CySvg63xMAEOpnDZmXb0SEgKgyKPgbQQqYKDiaVKgPo2YxReee4/H9Ar8rRwvta+FWcz2WrGGE5ce5dCL/PdKgJnd7Tdm5vGAAuPVOuvloqTeQCi+XBIOVtGEnksQMAzX50qr81uj8cDvl/tcqF4mhMHnvz1XIAANqC/txwj8uIQFxr+GkWosKJ++mFvFWuz+dv1uC9BYgKI5Oy+4iNf3n1UgO6XmpA10W6rjM4XOomQoimaZZleSblmaap6zoAIIR+AJ1mwO1EiVVUAAAAAElFTkSuQmCC"
+        download="star.png">
+        下载star图片
+    </a>
+    <a href="mailto:nowhere@mozilla.org">向 nowhere 发邮件</a>
+
+    <ul>
+        <li>无</li>
+        <li>序</li>
+        <li>列</li>
+        <li>表</li>
+    </ul>
+
+    <ol>
+        <li>有</li>
+        <li>序</li>
+        <li>列</li>
+        <li>表</li>
+        <ul>
+            <li>嵌套一个无序的</li>
+            <li>嵌套一个无序的</li>
+        </ul>
+    </ol>
+
+    <!-- 一般商品分类中用的比较多 -->
+    <dl>
+        <dt>定义列表标题dt</dt>
+        <dd>定义列表描述dd</dd>
+        <dt>一个dt</dt>
+        <dd>可以对应多个dd</dd>
+        <dd>可以对应多个dd</dd>
+        <dd>可以对应多个dd</dd>
+    </dl>
+
+    <!-- 表格
+            thead 表格头
+            tbody 表格体
+            tfoot 表格脚
+            th 表头单元格
+            tr 行 设置width是列宽 设置height是行高
+            td 单元格 设置width是列宽 设置height是行高
+            给th、td设置height会在基础上加上 上下的cellpadding
+            给tr设置height就是行高
+
+            横向对齐 - align属性：center left right 
+            横向对齐 - valign属性：middle top bottom
+    -->
+    <table border="1" width="400" cellspacing="0" cellpadding="10">
+        <caption>表格标题caption</caption>
+        <thead>
+            <th width="150" height="20">表头单元格1</th>
+            <th>表头单元格2</th>
+            <th>表头单元格3</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>第一行内容1</td>
+                <td>第一行内容2</td>
+                <td>第一行内容3</td>
+            </tr>
+            <tr>
+                <td height="50">第二行内容1</td>
+                <td>第二行内容2</td>
+                <td>第二行内容3</td>
+            </tr>
+        </tbody>
+        <tfoot></tfoot>
+    </table> <br>
+
+    <!-- 跨行跨列表格 -->
+    <table border="1" cellspacing="0">
+        <caption>跨行或列合并</caption>
+        <thead>
+            <th>分类</th>
+            <th>序号</th>
+            <th>姓名</th>
+            <th>性别</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="3">分类1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td colspan="4">1</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">这里是页脚</td>
+            </tr>
+        </tfoot>
+    </table><br>
+
+    <!-- 特殊形式表格 -->
+    <table border="1" cellspacing="0">
+        <caption>特殊形式表格</caption>
+        <thead>
+            <tr>
+                <th rowspan="2">星期</th>
+                <th colspan="2">上午</th>
+                <th colspan="2">下午</th>
+            </tr>
+            <tr>
+                <th>第一节</th>
+                <th>第二节</th>
+                <th>第三节</th>
+                <th>第四节</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>星期一</td>
+            </tr>
+            <tr>
+                <td>星期二</td>
+            </tr>
+            <tr>
+                <td>星期三</td>
+            </tr>
+            <tr>
+                <td>星期四</td>
+            </tr>
+        </tbody>
+        <tfoot></tfoot>
+    </table>
+
+</body>
+
+</html>

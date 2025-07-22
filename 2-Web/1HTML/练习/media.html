@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h3><a href="all-html-tags.html">回到首页</a></h3>
+        <h3><a href="all-input.html">跳转到input</a></h3>
+        <h3><a href="form.html">跳转到表单form</a></h3>
+        <h3><a href="html-layout.html">跳转到layout布局</a></h3>
+        <h3><a href="media.html">跳转到多媒体</a></h3>
+        <h3><a href="resume.html">跳转到table练习</a></h3>
+    </div>
+
+    <div>
+        <h3>手动绘制svg矢量图</h3>
+        <svg version="1.1" baseProfile="full" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100%" height="100%" fill="black" />
+            <circle cx="150" cy="100" r="90" fill="blue" />
+        </svg><br>
+        <svg width="100%" height="100%">
+            <rect width="100%" height="100%" fill="red" />
+            <circle cx="100%" cy="100%" r="150" fill="blue" stroke="black" />
+            <polygon points="120,0 240,225 0,225" fill="green"/>
+            <text x="50" y="100" font-family="Verdana" font-size="55"
+                  fill="white" stroke="black" stroke-width="2">
+                    Hello!
+            </text>
+          </svg>
+    </div>
+
+    <div>
+        <img src="commen/yellowStar30x30.png" alt="alt是当img显式不出时的描述"><br>
+
+        <img src="commen/yellowStar3030.png" alt="alt是当img显式不出时的描述"><br>
+
+        <!-- controls属性是为了包含浏览器自带的控制播放与否 -->
+        <video controls>
+            <source src="rabbit320.mp4" type="video/mp4" />
+            <source src="rabbit320.webm" type="video/webm" />
+            <p>你的浏览器不支持此视频。可点击<a href="rabbit320.mp4">此链接</a>观看</p>
+        </video><br>
+
+        <audio controls>
+            <source src="viper.mp3" type="audio/mp3" />
+            <source src="viper.ogg" type="audio/ogg" />
+            <p>你的浏览器不支持该音频，可点击<a href="viper.mp3">此链接</a>收听。</p>
+        </audio><br>
+    </div>
+
+    <div>
+        <h3>这里是iframe</h3>
+        <!-- src类型：网页文件、 -->
+        <iframe src="https://player.bilibili.com/player.html?aid=19390801&bvid=BV1bW411n7fY&cid=31621681&page=1"
+            scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
+        </iframe><br>
+
+
+        <a href="http://www.taobao.com" target="here">这里是a标签，使用target属性，下面是iframe</a><br>
+        <a href="all-html-tags.html" target="here">这里是我的html</a><br>
+        <iframe src="" name="here"></iframe>
+
+    </div>
+</body>
+
+</html>
