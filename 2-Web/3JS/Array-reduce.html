@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1 - 统计 arr 出现的次数，并且找到第一次出现的位次
+    const arr1 = [2, 6, 2, 3, 8, 9, 6, 8, 9, 7];
+
+    const appearObj = arr1.reduce((pre, cur, curIndex) => {
+      if (!pre[cur]) {
+        pre[cur] = {
+          times: 0,
+          firstAppear: curIndex,
+        }
+      } else {
+        pre[cur].times += 1;
+      }
+      /*
+      或者用逻辑合并的方式
+      pre[cur] = pre[cur] || {times: 0, firatAppear: curIndex};
+      pre[cur].times += 1;
+      */
+
+      return pre;
+    }, {});
+
+    // 2 - 数组去重
+    const distinctArr = arr1.reduce((pre, cur) => {
+      if(!pre.includes(cur)) {
+        pre.push(cur);
+        // return [...pre, cur]; // 需要return 因为不满足条件时候不走if 就返回undefined了
+      }
+      // !pre.includes(cur) ?  pre.push(cur) : null;
+      return pre;
+    }, []);
+
+    // 3 - 合并同类的 quantity 值[{name: xx, quantity: xx}] / {name:quantity}
+    const fruits = [
+        {name: 'apple', quantity: 2},
+        {name: 'banana', quantity: 4},
+        {name: 'apple', quantity: 3}
+    ];
+    const afterFruits = fruits.reduce((pre, cur) => {
+      const isexitIndex = pre.findIndex((i) => i.name === cur.name);
+      if (isexitIndex !== -1) {
+        pre[isexitIndex].quantity += cur.quantity;
+      } else {
+        pre.push(cur);
+      }
+      return pre;
+    }, []);
+  </script>
+</body>
+</html>

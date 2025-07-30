@@ -60,13 +60,33 @@ usestate初始化几次？
 状态什么时候更新的？
 父组件怎么调用子组件的方法？
 受控组件和非受控组件？
+讲讲react中的key，为什么react要用key
 
 
 lfy-one
 事件循环？
-reduce的使用？
+reduce的使用？统计一个数组中重复项出现的次数，并且找到第一次出现是在哪一位？
 字体如何小于12px？
-写一个闭包。
+写一个闭包。我写的：
+const fn = () => {
+  const a = 'a';
+  const b = () => {
+    console.log(a);
+  };
+  b();
+}
+fn();
+应该：
+const fn = () => {
+  const a = 'a';
+  const b = () => {
+    console.log(a);
+  };
+  return b;
+}
+const bb = fn();
+bb();
+
 项目中遇到的难点，怎么解决的。
 css中一些实际会遇到的问题吧【table多一行不显示？移动端设置了媒体查询但是不生效】？
 媒体查询？
