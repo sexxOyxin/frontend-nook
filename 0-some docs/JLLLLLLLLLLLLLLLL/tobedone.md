@@ -27,8 +27,10 @@
 
 ## 技术问题？
 ### 白屏
+支付宝开放平台回答：https://open.alipay.com/portal/forum/post/109101011?ant_source=opendoc_recommend
+
 ### excel下载导出错误解决？
-可以说一下图片的
+可以说一在下载过程中给excel中加图片的
 ### 侧边导航栏 鼠标经过才出滚动条
 # Explanation of nouns
 ## sass sso
