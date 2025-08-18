@@ -96,3 +96,10 @@ transform、translation、transport的使用？
 居中写一下。
 var、let、const区别。
 map、foreach分别干嘛的，什么场景。
+
+nsh-two
+前端后端的界定标准？-答了有没有直接操作底表数据
+技术文档？
+代码评审？遇到过哪些问题？
+前端代码里用到了哪些业务逻辑？
+nodejs算前端还是后端？
